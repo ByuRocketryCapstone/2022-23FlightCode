@@ -1,0 +1,14 @@
+while height < goalHeight
+    [height, velocity, acceleration, direction] = readSensorData()
+    yVelocity = getYComponent(velocity, direction)
+    projectedAccel = -1*yVelocity^2 / 2*(goalHeight - height)
+    neededAccel = projectedAccel - acceleration
+    neededForce = neededAccel * dryMass
+    deploymentAngle = calcNewDrag(neededForce)
+    movePaddleArms(deploymentAngle)
+
+calcNewDrag(neededForce)
+    //weighted average of preplanned trajectory and kinematics
+    //more weighted toward preplanned trajectory at beginning 
+    //more weighted toward kinematics at end of burn
+    return deploymentAngle
