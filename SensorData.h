@@ -1,6 +1,19 @@
 #ifndef SENSOR_DATA_H
 #define SENSOR_DATA_H
 
+/*
+Container class to hold useful sensor data.
+
+This is not meant for raw sensor data. This class is meant to hold the post-processed
+data that the flight algorithm needs to make its predictions.
+
+Each instance of the class is information about the rocket at one point in time.
+*/
+
+#include "Logger.h"
+
+extern Logger logger;
+
 class SensorData
 {
     public:
@@ -9,6 +22,7 @@ class SensorData
                 double acceleration, 
                 double pitchAngle,
                 double timestamp);
+
     double getHeight();
     double getVelocity();
     double getAcceleration();
