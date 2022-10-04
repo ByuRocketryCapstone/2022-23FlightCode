@@ -1,7 +1,11 @@
 #include <string>
 #include <iostream>
 
+#include "Logger.h"
+
 using namespace std;
+
+Logger logger;
 
 int main(int argc, char* argv[])
 {

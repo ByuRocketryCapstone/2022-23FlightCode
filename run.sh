@@ -1,2 +1,2 @@
-g++ flightloop.cpp -o run.exe
-./run.exe
+g++ *.cpp -Wall -o run
+./run
