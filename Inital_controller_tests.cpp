@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Logger logger;
+extern Logger logger;
 
 double targetAlt;
 double PredictedAlt;
