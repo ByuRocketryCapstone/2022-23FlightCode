@@ -28,6 +28,7 @@ class SensorData
     double getAcceleration();
     double getPitchAngle();
     double getTimestamp();
+    void updateData();
 
     private:
     double height;          // m

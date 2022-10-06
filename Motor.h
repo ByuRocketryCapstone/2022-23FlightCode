@@ -18,8 +18,13 @@ class Motor
     private:
     double currentAngle;        //degrees
     const double LEAD_SCREW_PITCH = 1.0;    //replace with actual pitch
+    const double slow = 5; //arbitrary movement speed
+    const double med = 10; //arbitrary movement speed
+    const double fast = 20; //arbitrary movement speed
 
     double paddleAngleToMotorAngle(double paddleAngle);
 };
+
+
 
 #endif //MOTOR_H

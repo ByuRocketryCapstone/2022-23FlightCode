@@ -24,5 +24,10 @@ double SensorData::getPitchAngle() {return pitchAngle;}
 
 double SensorData::getTimestamp() {return timestamp;}
 
+void SensorData::updateData() {
+    //access sensor data
+    return;
+};
+
 
 
