@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Logger logger;
+extern Logger logger;
 
 double Alterror;
 double PredictedAlt;
