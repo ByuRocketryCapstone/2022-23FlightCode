@@ -1,5 +1,5 @@
-#ifndef "mainSM.h"
-#define "mainSM.h"
+#ifndef MAIN_SM_H
+#define MAIN_SM_H
 #include <stdint.h>
 #include <math.h>
 #include <stdio.h>
@@ -27,9 +27,7 @@ static enum brakeControlState {
     done_st, //all doneeee, close data files, wait for recovery
 } CurrState, NextState;
 
-void mainTick() {
-
-}
+void mainTick();
 
 
 #endif
