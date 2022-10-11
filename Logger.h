@@ -9,6 +9,10 @@ class Logger
     public:
     Logger(std::string name = "");
     void log(std::string message); 
+    void log_init();
+    void log_tick();
+    void log_enable();
+    void log_disable();
 
     private:
     std::string filename;

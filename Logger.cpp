@@ -1,5 +1,14 @@
 #include "Logger.h"
 
+
+static bool enable = false;
+
+static enum loggerState {
+    init_st,
+    wait_enable_st,
+    log_data_st
+} CS, NS;
+
 Logger::Logger(std::string name)
 {
     if(name != "") filename = name;
@@ -8,6 +17,9 @@ Logger::Logger(std::string name)
     writer.open(filename);
 }
 
+void Logger::log_init() {
+    enable = false;
+};
 
 void Logger::log(std::string message)
 {
@@ -22,4 +34,17 @@ void Logger::log(std::string message)
     strftime(timestr, 1000, "%T", time_temp);
     writer << timestr << " ";
     writer << message << std::endl;
+}
+
+void Logger::log_enable() {
+    enable = true;
+}
+
+void Logger::log_disable() {
+    enable = false;
+}
+
+//logger state machine
+void Logger::log_tick() {
+
 }

@@ -23,10 +23,15 @@ int main(int argc, char* argv[])
     CurrState = init_st;
     NextState = init_st;
     
-
+    //init functions
+    // 
+    // 
     //start state machine
     while (1) {
-        mainTick();
+        main_Tick();
+        update_Tick();
+        hardwarControl_tick();
+        log_Tick();
      
     }
 }

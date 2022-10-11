@@ -22,9 +22,9 @@ static enum brakeControlState {
     arm_st, //armed and ready, waiting to detect ignition, maybe take in mission-specific initial conditions
     //ignition_st, //detected ignition
     wait_cutoff_st, //wait for engine cuttoff, all while logging data, jump to update_st 
-    update_st, //refresh current sensor data, maybe jump to log_st
-    control_st, //calculate and compare desired values and implement paddle actuation
-    log_st, //log data, sensor data and motor movements
+    //update_st, //refresh current sensor data, maybe jump to log_st
+    //control_st, //calculate and compare desired values and implement paddle actuation
+    //log_st, //log data, sensor data and motor movements
     wait_apogee_st, //detects apogee reached
     retract_st, //retract paddles for safety during descent
     descent_st, //tracK data during descent
@@ -57,6 +57,8 @@ void main_Tick() {
         }
         else {
             NS = arm_st;
+            updateEnable();
+            logEnable();
         }
         break;
 
@@ -73,7 +75,13 @@ void main_Tick() {
     //    break;
 
     case wait_cutoff_st:
-        NS = update_st;
+        if (!cutoff) {
+            NS = wait_cutoff_st;
+        }
+        else {
+            NS = wait_apogee_st;
+            hardwarecontrols_enable();
+        }
         break;
 
     case update_st:
@@ -111,12 +119,18 @@ void main_Tick() {
         break;
 
     case arm_st:
+        if (update_getIginition() == true) {
+            ignition = true;
+        }
         break;
 
-    case ignition_st:
-        break;
+    //case ignition_st:
+    //    break;
 
     case wait_cutoff_st:
+        if (update_getCutoff() == true) {
+            cutoff = true;
+        }
         break;
 
     case update_st:
