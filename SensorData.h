@@ -11,6 +11,7 @@ Each instance of the class is information about the rocket at one point in time.
 */
 
 #include "Logger.h"
+#include "Parameters.h"
 
 extern Logger logger;
 

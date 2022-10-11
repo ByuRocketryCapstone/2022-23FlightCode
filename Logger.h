@@ -3,14 +3,16 @@
 
 #include <string>
 #include <fstream>
+#include "Parameters.h"
 
 class Logger
 {
     public:
     Logger(std::string name = "");
-    void log(std::string message); 
+    void log(std::string message, int messageLevel); 
 
     private:
+    int logLevel;
     std::string filename;
     std::ofstream writer;
 };
