@@ -6,6 +6,7 @@ Class to control all things associated with the stepper motor on the lead screw.
 */
 
 #include "Logger.h"
+#include "Parameters.h"
 
 extern Logger logger;
 

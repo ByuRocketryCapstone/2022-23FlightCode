@@ -27,7 +27,7 @@ double SimTable::at(std::string rowID, int colNum)
     if (rowNum == -1) 
     {
         logger.log("Identifier " + rowID + " was used in SimTable::at(), but \
-        no row was found with that idenfifier.");
+        no row was found with that idenfifier.", FLIGHT);
         return 0.0;
     }
     return dataTable[rowNum][colNum];

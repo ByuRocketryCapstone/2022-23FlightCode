@@ -11,6 +11,8 @@ static enum loggerState {
 
 Logger::Logger(std::string name)
 {
+    logLevel = TESTING;
+
     if(name != "") filename = name;
     else filename = "LogFiles/" + std::to_string(time(NULL)) + "_logfile.txt";
 
@@ -21,30 +23,20 @@ void Logger::log_init() {
     enable = false;
 };
 
-void Logger::log(std::string message)
+void Logger::log(std::string message, int messageLevel)
 {
-    //formatting garbage to make strftime() work
-    time_t current_time;
-    tm* time_temp;
-    time(&current_time);
-    time_temp = localtime(&current_time);
+    if(messageLevel >= logLevel)
+    {
+        //formatting garbage to make strftime() work
+        time_t current_time;
+        tm* time_temp;
+        time(&current_time);
+        time_temp = localtime(&current_time);
 
-    //write message to log file with timestamp prepended
-    char timestr [80];
-    strftime(timestr, 1000, "%T", time_temp);
-    writer << timestr << " ";
-    writer << message << std::endl;
-}
-
-void Logger::log_enable() {
-    enable = true;
-}
-
-void Logger::log_disable() {
-    enable = false;
-}
-
-//logger state machine
-void Logger::log_tick() {
-
+        //write message to log file with timestamp prepended
+        char timestr [80];
+        strftime(timestr, 1000, "%T", time_temp);
+        writer << timestr << " ";
+        writer << message << std::endl;
+    }
 }

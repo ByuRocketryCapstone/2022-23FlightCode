@@ -14,6 +14,7 @@ data searchable by keyword.
 
 #include <string>
 #include "Logger.h"
+#include "Parameters.h"
 
 extern Logger logger;
 

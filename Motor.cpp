@@ -21,7 +21,7 @@ double Motor::paddleAngleToMotorAngle(double paddleAngle)
 
 //determines if and what direction motor needs to move and sends instructions to motor
 void Motor::moveMotor(double paddleAngle) {
-    if (Motor.currentAngle == this(paddleAngle)) {
+    if (currentAngle == paddleAngle) {
         return;
     }
     else {
@@ -41,6 +41,5 @@ void Motor::moveMotor(double paddleAngle) {
     }
     //if no closed-loop rotation feedback
     currentAngle = paddleAngle;
-    return;
 };
 

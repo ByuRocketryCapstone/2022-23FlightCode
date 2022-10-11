@@ -3,6 +3,7 @@
 
 #include <string>
 #include <fstream>
+#include "Parameters.h"
 
 class Logger
 {
@@ -15,6 +16,7 @@ class Logger
     void log_disable();
 
     private:
+    int logLevel;
     std::string filename;
     std::ofstream writer;
 };
