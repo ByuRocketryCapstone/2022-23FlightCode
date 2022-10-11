@@ -12,7 +12,7 @@
 
 
 //isr tick function
-void mainTick();
+void main_Tick();
 
 //main initi
 void mainInit();
