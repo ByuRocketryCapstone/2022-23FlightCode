@@ -17,5 +17,11 @@ void main_Tick();
 //main initi
 void mainInit();
 
+void updateEnable();
+void logEnable();
+void hardwarecontrols_enable();
+bool update_getIgnition();
+bool update_getCutoff();
+
 
 #endif

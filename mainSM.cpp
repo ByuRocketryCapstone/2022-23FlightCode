@@ -4,13 +4,13 @@
 
 
 
-global bool armed;
-global bool ignition;
-global bool cutoff;
-global bool apogee;
-global bool retract;
-global bool ground;
-global bool done;
+bool armed;
+bool ignition;
+bool cutoff;
+bool apogee;
+bool retract;
+bool ground;
+bool done;
 
 
 
@@ -29,7 +29,7 @@ static enum brakeControlState {
     retract_st, //retract paddles for safety during descent
     descent_st, //tracK data during descent
     done_st, //all doneeee, close data files, wait for recovery
-} CS, NS;
+} CurrState, NextState;
 
 
 
@@ -45,18 +45,18 @@ void mainInit() {
 
 void main_Tick() {
     //state update, Mealy actions
-    switch (CS) {
+    switch (CurrState) {
     case init_st:
         mainInit();
-        NS = wait_arm_st;
+        NextState = wait_arm_st;
         break;
 
     case wait_arm_st:
         if (!armed) {
-            NS = wait_arm_st;
+            NextState = wait_arm_st;
         }
         else {
-            NS = arm_st;
+            NextState = arm_st;
             updateEnable();
             logEnable();
         }
@@ -64,10 +64,10 @@ void main_Tick() {
 
     case arm_st:
         if (!ignition) {
-            NS = arm_st;
+            NextState = arm_st;
         }
         else {
-            NS = wait_cutoff_st;
+            NextState = wait_cutoff_st;
         }
         break;
 
@@ -76,22 +76,22 @@ void main_Tick() {
 
     case wait_cutoff_st:
         if (!cutoff) {
-            NS = wait_cutoff_st;
+            NextState = wait_cutoff_st;
         }
         else {
-            NS = wait_apogee_st;
+            NextState = wait_apogee_st;
             hardwarecontrols_enable();
         }
         break;
 
-    case update_st:
-        break;
+    // case update_st:
+    //     break;
 
-    case control_st:
-        break;
+    // case control_st:
+    //     break;
 
-    case log_st:
-        break;
+    // case log_st:
+    //     break;
 
     case wait_apogee_st:
         break;
@@ -111,7 +111,7 @@ void main_Tick() {
     }
 
     //state action, Moore actions
-    switch (CS) {
+    switch (CurrState) {
     case init_st:
         break;
 
@@ -119,7 +119,7 @@ void main_Tick() {
         break;
 
     case arm_st:
-        if (update_getIginition() == true) {
+        if (update_getIgnition() == true) {
             ignition = true;
         }
         break;
@@ -133,14 +133,14 @@ void main_Tick() {
         }
         break;
 
-    case update_st:
-        break;
+    // case update_st:
+    //     break;
 
-    case control_st:
-        break;
+    // case control_st:
+    //     break;
 
-    case log_st:
-        break;
+    // case log_st:
+    //     break;
 
     case wait_apogee_st:
         break;
@@ -160,7 +160,7 @@ void main_Tick() {
     }
 
     //update state
-    CS = NS;
+    CurrState = NextState;
 
 }
 
