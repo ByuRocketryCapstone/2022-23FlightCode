@@ -40,3 +40,16 @@ void Logger::log(std::string message, int messageLevel)
         writer << message << std::endl;
     }
 }
+
+void Logger::log_enable() {
+    enable = true;
+}
+
+void Logger::log_disable() {
+    enable = false;
+}
+
+//logger state machine
+void Logger::log_tick() {
+
+}

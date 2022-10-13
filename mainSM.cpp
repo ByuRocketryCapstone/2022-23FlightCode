@@ -4,13 +4,13 @@
 
 
 
-global bool armed;
-global bool ignition;
-global bool cutoff;
-global bool apogee;
-global bool retract;
-global bool ground;
-global bool done;
+static bool armed;
+static bool ignition;
+static bool cutoff;
+static bool apogee;
+static bool retract;
+static bool ground;
+static bool done;
 
 
 
