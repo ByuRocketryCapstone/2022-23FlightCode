@@ -20,18 +20,18 @@ int main(int argc, char* argv[])
     cout << "We've been trying to reach you about your car's extended warranty." << endl;
     cout << "I would like to speak to your manager..." << endl;
 
-    CurrState = init_st;
-    NextState = init_st;
+    // CurrState = init_st;
+    // NextState = init_st;
     
     //init functions
     // 
     // 
     //start state machine
     while (1) {
-        main_Tick();
-        update_Tick();
-        hardwarControl_tick();
-        log_Tick();
+        // main_Tick();
+        // update_Tick();
+        // hardwarControl_tick();
+        // log_Tick();
      
     }
 }

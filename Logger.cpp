@@ -7,7 +7,7 @@ static enum loggerState {
     init_st,
     wait_enable_st,
     log_data_st
-} CS, NS;
+} CurrState, NextState;
 
 Logger::Logger(std::string name)
 {

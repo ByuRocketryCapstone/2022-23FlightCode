@@ -11,7 +11,7 @@ static enum hardwareControlState {
 	start_act_st,
 	wait_act_st,
 	done_st
-}CS, NS;
+}CurrState, NextState;
 
 // initialize
 void hardwareConrol_init() {
