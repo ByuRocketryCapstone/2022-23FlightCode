@@ -10,7 +10,7 @@ static enum updateDataState {
 	init_st,
 	wait_enable_st,
 	poll_data_st
-}CS, NS;
+}CurrState, NextState;
 
 //initialize
 void updateData_init() {
