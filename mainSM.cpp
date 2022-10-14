@@ -96,7 +96,7 @@ void main_Tick() {
         else {
             NS = arm_st;
             updateData_enable();
-            logPtrArray[runNumber - 1]->log_enable(runNumber);
+            logPtrArray[runNumber - 1]->log_enable();
         }
         break;
 
@@ -127,7 +127,7 @@ void main_Tick() {
             NS = wait_apogee_st;
         }
         else {
-            NS = retract_st
+            NS = retract_st;
         }
         break;
 
@@ -186,6 +186,8 @@ void main_Tick() {
         break;
 
     }
+
+    
 
     //state action, Moore actions
     switch (CS) {

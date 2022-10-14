@@ -9,6 +9,7 @@ class Logger
 {
     public:
     Logger(std::string name = "");
+    ~Logger();
     void log(std::string message, int messageLevel); 
     void log_init();
     void log_tick();
