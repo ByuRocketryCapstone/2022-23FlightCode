@@ -28,10 +28,17 @@ int main(int argc, char* argv[])
     // 
     //start state machine
     while (1) {
-        // main_Tick();
+        
+     
+    }
+
+   /// mainSM.deletelogger()
+}
+
+
+//ISR-run(){/
+// / main_Tick();
         // update_Tick();
         // hardwarControl_tick();
         // log_Tick();
-     
-    }
-}
+//}

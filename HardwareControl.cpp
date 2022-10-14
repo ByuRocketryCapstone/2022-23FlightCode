@@ -14,7 +14,7 @@ static enum hardwareControlState {
 }CurrState, NextState;
 
 // initialize
-void hardwareConrol_init() {
+void hardwareControl_init() {
 	enable = false;
 };
 

@@ -5,7 +5,7 @@
 
 
 //initialize
-void hardwareConrol_init();
+void hardwareControl_init();
 
 //enable SM
 void hardwareControl_enable();
