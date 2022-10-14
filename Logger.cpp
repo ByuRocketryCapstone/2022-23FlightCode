@@ -53,3 +53,8 @@ void Logger::log_disable() {
 void Logger::log_tick() {
 
 }
+
+Logger::~Logger()
+{
+    writer.close();
+}
