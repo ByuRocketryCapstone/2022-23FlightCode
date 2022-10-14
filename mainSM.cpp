@@ -15,7 +15,7 @@ bool apogee;
 bool retracted;
 bool ground;
 bool done;
-bool abort;
+bool abortControls;
 bool reset;
 //Logger mainLogger;
 int runNumber;
@@ -71,7 +71,7 @@ void main_Init() {
     retracted = false;
     ground = false;
     done = false;
-    abort = false;
+    abortControls = false;
     reset = false;
     numLogs = 0;
     runNumber = 1;
@@ -172,7 +172,7 @@ void main_Tick() {
             retracted = false;
             ground = false;
             done = false;
-            abort = false;
+            abortControls = false;
             reset = false;
             main_MakeLog(runNumber);
         }
