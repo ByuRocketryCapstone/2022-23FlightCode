@@ -28,6 +28,42 @@ void updateData_disable() {
 };
 
 //state machine tick
-void updateData_tick();
+void updateData_tick() {
+	//state update
+	switch (CurrState) {
+	case init_st:
+		NextState = wait_enable_st;
+		break;
+
+	case wait_enable_st:
+		if (!enable) {
+			NextState = wait_enable_st;
+		}
+		else if (enable) {
+			NextState = poll_data_st;
+		}
+		break;
+
+	case poll_data_st:
+		NextState = wait_enable_st;
+		break;
+	}
+
+	//state action
+	switch (CurrState) {
+	case init_st:
+		updateData_init();
+		break;
+		
+	case wait_enable_st:
+		break;
+
+	case poll_data_st:
+		break;
+	}
+
+	//state advancement 
+	CurrState = NextState;
+};
 
 
